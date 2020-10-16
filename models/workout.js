@@ -1,8 +1,7 @@
-
+//schema
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// Schema for a Workout
 const WorkoutSchema = new Schema({
 	day: {
 		type: Date,
@@ -18,11 +17,12 @@ const WorkoutSchema = new Schema({
 			name: {
 				type: String,
 				trim: true,
-				required: 'Name is required.',
+				required: 'Name is required.'
 			},
             duration: {
 				type: Number,
-				trim: true
+                trim: true,
+                required: 'Name is required.'
             },
             distance: {
 				type: Number,
