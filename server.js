@@ -15,20 +15,13 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/populatedb", { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workouttrackerdb", { useNewUrlParser: true });
 
-db.User.create({ name: "Ernest Hemingway" })
-  .then(dbUser => {
-    console.log(dbUser);
-  })
-  .catch(({ message }) => {
-    console.log(message);
-  });
 
-app.get("/notes", (req, res) => {
-  db.Note.find({})
-    .then(dbNote => {
-      res.json(dbNote);
+app.get("/exercises", (req, res) => {
+  db.ecercise.find({})
+    .then(dbexercise => {
+      res.json(dbexercise);
     })
     .catch(err => {
       res.json(err);
