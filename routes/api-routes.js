@@ -9,6 +9,7 @@ let db = require("../models");
 // Route to add an exercise
 router.get("/api/workouts", (req, res) => {
     db.Workout.find({})
+    console.log("dashboard")
     .then(dbWorkouts => {
       res.json(dbWorkouts);
     })
