@@ -34,7 +34,7 @@ router.put("/api/workouts/:id", (req, res) => {
 });
 
 // Route for index page - Add new or continue a workout
-router.post("/api/workouts/range", ({body}, res) => {
+router.post("/api/workouts", ({body}, res) => {
     db.Workout.create(body)
     .then(dbWorkout => {
       res.json(dbWorkout);
@@ -42,6 +42,17 @@ router.post("/api/workouts/range", ({body}, res) => {
     .catch(err => {
       res.json(err);
     });
+});
+
+router.get("/api/workouts/range", (req, res) => {
+  db.Workout.find({})
+  console.log("dashboard")
+  .then(dbWorkouts => {
+    res.json(dbWorkouts);
+  })
+  .catch(err => {
+    res.json(err);
+  });
 });
 
 module.exports = router;
