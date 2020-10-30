@@ -16,7 +16,7 @@ router.get('/stats', (req, res) => {
 });
 
 // Route for index page - Add new or continue a workout
-router.get('/', (req, res) => {
+router.get('*', (req, res) => {
 	res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
